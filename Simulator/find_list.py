@@ -10,7 +10,7 @@ with open('sim_Parent.dat', 'r') as f:
 indv = int(sys.argv[1])
 posize = int(sys.argv[2])
 gen = [indv-1]
-for i in range(1,len(data)):
+for i in range(len(data)):
     
     gen_1 = []
     for j in range(len(gen)):
