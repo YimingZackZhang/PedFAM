@@ -30,7 +30,6 @@ def GenSingleInfo(parentlist,prefix,ll,pho,Recomfrag,i,j):
 
 
 prefix="sim"
-n_threads=1
 nindv=200
 nchr=1
 
