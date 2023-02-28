@@ -31,7 +31,6 @@ def GenSingleInfo(parentlist,prefix,ll,pho,Recomfrag,i,j):
 
 prefix="sim"
 nindv=200
-nchr=1
 
 ll = 5000001
 
