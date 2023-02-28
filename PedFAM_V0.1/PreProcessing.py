@@ -33,7 +33,7 @@ def Calc_prob_within_segments(Prob_noswitch_bp, length):
     return Prob_Noswitch_happen, Prob_Switch_happen
 
 # Preprocessing
-def PreProcess(ref, testhap_1, testhap_2, positionfile, Num_Blocks, recombination_rate, num_refs):
+def PreProcess(ref, geno, positionfile, Num_Blocks, recombination_rate, num_refs):
     
     # Read Allele Frequency
     ref_hap_0 = Readfile(ref)
@@ -44,21 +44,18 @@ def PreProcess(ref, testhap_1, testhap_2, positionfile, Num_Blocks, recombinatio
             for j in range(Num_SNP_per_Segments):
                 ref_hap[x][i][j] = float(ref_hap_0[x][i*Num_SNP_per_Segments+j])    
 
-    # Haplotypes 1        
-    Haplotype_1 = Readfile(testhap_1)[0]
+    # Haplotypes     
+    Haplotype = Readfile(geno)
         
     Haplotype_f = np.zeros((Num_Blocks, Num_SNP_per_Segments))
     for i in range(Num_Blocks):
         for j in range(Num_SNP_per_Segments):
-            Haplotype_f[i][j] = float(Haplotype_1[i*Num_SNP_per_Segments+j][0])           
-        
-    # Haplotypes 2
-    Haplotype_2 = Readfile(testhap_2)[0]
-        
+            Haplotype_f[i][j] = float(Haplotype[0][i*Num_SNP_per_Segments+j][0])           
+   
     Haplotype_m = np.zeros((Num_Blocks, Num_SNP_per_Segments))
     for i in range(Num_Blocks):
         for j in range(Num_SNP_per_Segments):
-            Haplotype_m[i][j] = float(Haplotype_2[i*Num_SNP_per_Segments+j][0])       
+            Haplotype_m[i][j] = float(Haplotype[1][i*Num_SNP_per_Segments+j][0])       
 
     # Positions
     position_0 = Readfile(positionfile)[0]
